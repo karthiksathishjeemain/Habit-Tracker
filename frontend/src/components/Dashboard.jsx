@@ -17,6 +17,7 @@ const Dashboard = () => {
         duration: 'daily',
         startDate: new Date().toLocaleDateString('en-CA')
     });
+    // const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     const [selectedView, setSelectedView] = useState('list');
  
     const [suggestedHabits, setSuggestedHabits] = useState([]);
@@ -25,7 +26,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchHabits = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/habits', {
+                const response = await fetch('https://habit-tracker-9sjw.vercel.app/api/habits', {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
                     }
@@ -36,7 +37,7 @@ const Dashboard = () => {
            
                 const habitsWithProgress = await Promise.all(data.map(async (habit) => {
                   
-                    const progressResponse = await fetch(`http://localhost:3000/api/habits/${habit.id}/progress`, {
+                    const progressResponse = await fetch(`https://habit-tracker-9sjw.vercel.app/api/habits/${habit.id}/progress`, {
                         headers: {
                             'Authorization': `Bearer ${localStorage.getItem('token')}`
                         }
@@ -84,7 +85,7 @@ const Dashboard = () => {
 
     const handleAddHabit = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/habits', {
+            const response = await fetch('https://habit-tracker-9sjw.vercel.app/api/habits', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -105,7 +106,7 @@ const Dashboard = () => {
 
     const handleMarkComplete = async (habitId) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/habits/${habitId}/progress`, {
+            const response = await fetch(`https://habit-tracker-9sjw.vercel.app/api/habits/${habitId}/progress`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -187,7 +188,7 @@ const Dashboard = () => {
   
     const handleDeleteHabit = async (habitId) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/habits/${habitId}`, {
+            const response = await fetch(`https://habit-tracker-9sjw.vercel.app/api/habits/${habitId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -202,7 +203,7 @@ const Dashboard = () => {
 
     const handleEditHabit = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/api/habits/${editHabit.id}`, {
+            const response = await fetch(`https://habit-tracker-9sjw.vercel.app/api/habits/${editHabit.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

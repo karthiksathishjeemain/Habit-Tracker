@@ -52,7 +52,7 @@ export const UserProfile = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/api/user', {
+      const response = await fetch('https://habit-tracker-9sjw.vercel.app/api/user', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
