@@ -73,11 +73,11 @@ const Dashboard = () => {
         fetchSuggestions();
     }, [habits]);
     const handleProfileClick = () => {
-        setSelectedView('userProfile');
+        // setSelectedView('userProfile');
         window.location.href = '/profile';
     };
     const handleLogout = ()=>{
-        setSelectedView('logOut');
+        // setSelectedView('logOut');
         localStorage.removeItem('token');
         window.location.href = '/login';
     }
@@ -428,10 +428,16 @@ const Dashboard = () => {
                             <div key={index} className="bg-gray-50 p-4 rounded">
                                 <h3 className="font-medium">{habit.title}</h3>
                                 <p className="text-sm text-gray-600">{habit.description}</p>
-                                <p className="text-xs text-gray-500 mt-1">{habit.duration}</p>
+                                <p className="text-xs text-gray-500 mt-1">{habit.category}</p>
                                 <button
                                     onClick={() => {
-                                        setNewHabit(habit);
+                                        const formattedHabit = {
+                                            title: habit.title,
+                                            description: habit.description,
+                                            duration: 'daily', // Default value or adjust as needed
+                                            startDate: new Date().toLocaleDateString('en-CA') // Default value or adjust as needed
+                                        };
+                                        setNewHabit(formattedHabit);
                                         setShowAddModal(true);
                                     }}
                                     className="mt-2 text-blue-500 text-sm font-medium"
