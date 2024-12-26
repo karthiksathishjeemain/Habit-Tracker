@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Alert, AlertDescription } from '../ui/Alert';
+import { Alert, AlertDescription } from '../ui/alert';
 import { useNavigate } from 'react-router-dom';
 const Login = ({ onLoginSuccess }) => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });

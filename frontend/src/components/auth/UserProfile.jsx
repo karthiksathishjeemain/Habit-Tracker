@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Alert, AlertDescription } from '../ui/Alert';
+import { Alert, AlertDescription } from '../ui/alert';
 
 export const UserProfile = () => {
   const [profile, setProfile] = useState(null);

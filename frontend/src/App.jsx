@@ -1,18 +1,15 @@
 // src/App.jsx
 import  { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from "./components/auth/Login"
 import Register  from './components/auth/Register';
 import { UserProfile } from './components/auth/UserProfile';
 import Dashboard from './components/Dashboard';
 
 function App() {
-  // const navigate = useNavigate();
+
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
-  // const NavigateToLogin =()=> {
-  //   const navigate = useNavigate();
-  //   navigate("/login");
-  // }
+  
   const handleLoginSuccess = () => {
     setIsAuthenticated(true);
   };

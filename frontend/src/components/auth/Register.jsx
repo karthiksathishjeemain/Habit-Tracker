@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-import { Alert, AlertDescription } from '../ui/Alert';
+import { Alert, AlertDescription } from '../ui/alert';
 import { useNavigate } from 'react-router-dom';
 const Register = () => {
   const [userData, setUserData] = useState({
