@@ -115,7 +115,7 @@ project/
 │   │   ├── auth.js
 │   │   ├── habits.js
 │   │   └── user.js
-│   ├── app.js
+│   ├── server.js
 │   └── schema.sql
 └── frontend/
    ├── src/
