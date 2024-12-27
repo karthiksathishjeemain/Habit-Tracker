@@ -63,7 +63,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchSuggestions = async () => {
             try {
-                const response = await fetch(`https://habit-tracker-ai-back.onrender.com/generate-habit-suggestions?user_habits=${JSON.stringify(habits)}`);
+                const response = await fetch(`https://habit-tracker-production-6883.up.railway.app/generate-habit-suggestions?user_habits=${JSON.stringify(habits)}`);
                 if (!response.ok) throw new Error('Failed to fetch habit suggestions');
                 const data = await response.json();
                 setSuggestedHabits(data);
